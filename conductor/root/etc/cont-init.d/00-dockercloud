@@ -1,0 +1,12 @@
+#!/usr/bin/with-contenv sh
+
+# if the environment variable DOCKERCLOUD_IP_ADDRESS is defined, we are running on docker cloud, update the following scripts that are tailored for docker cloud
+if [ -n "${DOCKERCLOUD_IP_ADDRESS}" ]; then
+
+    cat /usr/scripts/host-ip-docker-cloud > /usr/bin/host-ip
+
+    # Add 'sleep 3' to second line of file /etc/services.d/consul/run
+    # This line of code makes the run script sleeps for 3 seconds. This is a temp solution as docker cloud is addressing a delayed attachment issue
+    sed -i '2i sleep 3' /etc/services.d/consul/run
+
+fi

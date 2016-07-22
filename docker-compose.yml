@@ -1,0 +1,12 @@
+conductor:
+    build: ./conductor
+consul:
+    build: ./consul
+    links:
+        - conductor:consul
+consului:
+    build: ./consului
+    links:
+        - conductor:consul
+    ports:
+        - 8500:8500
