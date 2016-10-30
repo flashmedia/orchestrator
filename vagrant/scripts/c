@@ -27,6 +27,11 @@ restart)
     dc stop $CONTAINERNAME && dc rm -f --all $CONTAINERNAME && dc up -d --no-recreate $CONTAINERNAME && dc logs -f $CONTAINERNAME
     ;;
 
+down)
+
+    dc stop && dc rm --force
+    ;;
+
 exec)
 
     if [ ! -n "$2" ]; then
@@ -101,6 +106,11 @@ build)
     CONTAINERNAME=${2%/}
 
     dc build $CONTAINERNAME
+    ;;
+
+ps)
+
+    dc ps
     ;;
 
 -h|--help)
