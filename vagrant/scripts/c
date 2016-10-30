@@ -14,6 +14,19 @@ up)
     dc stop && dc rm --force && dc up -d && dc scale consul=3
     ;;
 
+rebuild)
+
+    if [ ! -n "$2" ]; then
+        dc stop && dc rm --force && dc build && dc up -d && dc scale consul=3
+        exit 1
+    fi
+
+    # remove the trailing / if there is any (this allows user to use tab to complete the container name which corresponding to the directory name)
+    CONTAINERNAME=${2%/}
+
+    dc stop $CONTAINERNAME && dc rm --force $CONTAINERNAME && dc build $CONTAINERNAME && dc up -d --no-recreate $CONTAINERNAME
+    ;;
+
 restart)
 
     if [ ! -n "$2" ]; then
@@ -24,7 +37,7 @@ restart)
     # remove the trailing / if there is any (this allows user to use tab to complete the container name which corresponding to the directory name)
     CONTAINERNAME=${2%/}
 
-    dc stop $CONTAINERNAME && dc rm --force $CONTAINERNAME && dc up -d --no-recreate $CONTAINERNAME && dc logs -f $CONTAINERNAME
+    dc stop $CONTAINERNAME && dc rm --force $CONTAINERNAME && dc up -d --no-recreate $CONTAINERNAME
     ;;
 
 down)
