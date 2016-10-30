@@ -22,6 +22,9 @@ There are files for editors that should keep the file formatting consistent with
 - Fork the repository.
 - Clone your fork locally.
 - Start the vagrant machine by running `vagrant up`.
+- Once everything has been setup, gain access to the VM with `vagrant ssh`.
+- Update the OS with `sudo apt-get dist-upgrade`.
+- You should execute into the `/vagrant` directory for most day to day usage with `cd /vagrant`.
 - To test the images, run `c up` - this is a custom script that has been build to help with every development with docker compose
 
 [vagrant]: https://www.vagrantup.com/
