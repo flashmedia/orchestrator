@@ -11,7 +11,7 @@ case "$1" in
 
 up)
 
-    dc stop && dc rm -f --all && dc up -d && dc scale consul=3
+    dc stop && dc rm --force && dc up -d && dc scale consul=3
     ;;
 
 restart)
@@ -24,7 +24,7 @@ restart)
     # remove the trailing / if there is any (this allows user to use tab to complete the container name which corresponding to the directory name)
     CONTAINERNAME=${2%/}
 
-    dc stop $CONTAINERNAME && dc rm -f --all $CONTAINERNAME && dc up -d --no-recreate $CONTAINERNAME && dc logs -f $CONTAINERNAME
+    dc stop $CONTAINERNAME && dc rm --force $CONTAINERNAME && dc up -d --no-recreate $CONTAINERNAME && dc logs -f $CONTAINERNAME
     ;;
 
 down)
