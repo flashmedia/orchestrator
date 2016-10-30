@@ -18,6 +18,8 @@ app.get('/exit', function (req, res) {
 
     res.status(200).send("Will exit in one second.");
 
+    console.log('Exit requested, exit in one second.');
+
     setTimeout(() => {
         process.exit(1);
     }, 1000);
