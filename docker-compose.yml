@@ -7,3 +7,8 @@ services:
         build: ./consului
         ports:
             - 8500:8500
+    app:
+        build: ./testing/app
+        restart: always
+        ports:
+            - 4000:4000
