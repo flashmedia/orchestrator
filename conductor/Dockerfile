@@ -1,4 +1,4 @@
-FROM smebberson/alpine-consul:3.0.0
+FROM smebberson/alpine-consul:3.1.0
 
 # Remove script that set consul to leave gracefully when container goes down
 # so that when an instance of this container goes up, it can rejoin using the gossip protocol

@@ -1,7 +1,0 @@
-#!/usr/bin/with-contenv sh
-
-# Bind to the external (LAN) IP.
-BIND=`host-ip`
-
-# Start Consul.
-s6-setuidgid consul consul agent -config-dir $CONSUL_CONFIG_DIR -bind $BIND -advertise $BIND -client 0.0.0.0 -domain $CONSUL_DOMAIN -rejoin

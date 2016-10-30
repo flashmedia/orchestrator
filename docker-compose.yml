@@ -1,12 +1,9 @@
-conductor:
-    build: ./conductor
-consul:
-    build: ./consul
-    links:
-        - conductor:consul
-consului:
-    build: ./consului
-    links:
-        - conductor:consul
-    ports:
-        - 8500:8500
+version: '2'
+
+services:
+    consul:
+        build: ./consul
+    consului:
+        build: ./consului
+        ports:
+            - 8500:8500

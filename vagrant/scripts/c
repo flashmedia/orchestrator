@@ -11,7 +11,7 @@ case "$1" in
 
 up)
 
-    dc stop && dc rm -f --all && dc up -d && dc scale consul=2
+    dc stop && dc rm -f --all && dc up -d && dc scale consul=3
     ;;
 
 restart)
@@ -88,6 +88,19 @@ npm)
     fi
 
     cd ${CONTAINERNAME}/root/app && npm install ${3}
+    ;;
+
+build)
+
+    if [ ! -n "$2" ]; then
+        dc build
+        exit 0
+    fi
+
+    # remove the trailing / if there is any (this allows user to use tab to complete the container name which corresponding to the directory name)
+    CONTAINERNAME=${2%/}
+
+    dc build $CONTAINERNAME
     ;;
 
 -h|--help)
