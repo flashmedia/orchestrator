@@ -6,7 +6,6 @@ These images are intended to be used to run a Consul cluster for specific web ap
 
 These images are used through all Idearium projects that run on Docker Cloud. The images that are available through this project repository are:
 
-- `flashmedia/conductor`
 - `flashmedia/consul`
 - `flashmedia/consului`
 
