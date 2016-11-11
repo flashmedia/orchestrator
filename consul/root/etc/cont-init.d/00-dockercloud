@@ -10,6 +10,6 @@ if [ -n "${DOCKERCLOUD_IP_ADDRESS}" ]; then
     sed -i '2i sleep 3' /etc/services.d/consul/run
 
     # We need a different script for Docker Cloud to find the local IP of the container.
-    cat /usr/scripts/host-ip-docker-cloud > /usr/bin/host-ip
+    cat /usr/scripts/host-ip > /usr/bin/host-ip
 
 fi
