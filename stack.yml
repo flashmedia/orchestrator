@@ -2,11 +2,15 @@ consul:
     image: 'flashmedia/consul:dev'
     restart: always
     target_num_containers: 3
+    environment:
+        - DNSMASQ_ENABLE_SEARCH=true
     tags:
         - orchestrator-1-do-ny3
 consului:
     image: 'flashmedia/consului:dev'
     restart: always
+    environment:
+        - DNSMASQ_ENABLE_SEARCH=true
     ports:
         - 8500:8500
     tags:
@@ -14,6 +18,8 @@ consului:
 app:
     image: 'flashmedia/orchestrator-app:dev'
     restart: always
+    environment:
+        - DNSMASQ_ENABLE_SEARCH=true
     ports:
         - 4000:4000
     tags:
