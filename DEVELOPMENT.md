@@ -21,13 +21,16 @@ There are files for editors that should keep the file formatting consistent with
 
 ## Setup
 
-- Fork the repository.
-- Clone your fork locally.
-- Start the vagrant machine by running `vagrant up`.
-- Once everything has been setup, gain access to the VM with `vagrant ssh`.
-- Update the OS with `sudo apt-get dist-upgrade`.
-- You should execute into the `/vagrant` directory for most day to day usage with `cd /vagrant`.
-- To test the images, run `c up` - this is a custom script that has been build to help with every development with docker compose
+- [host] Fork the repository.
+- [host] Clone your fork locally.
+- [host] Start the vagrant machine by running `vagrant up`.
+- [host] Once everything has been setup, gain access to the VM with `vagrant ssh`.
+- [guest] Issue `sudo apt-get update` to update the Aptitide repositories.
+- [guest] Update the OS with `sudo apt-get dist-upgrade` (you may be asked some questions).
+
+Everything should be setup and ready to develop with. You should execute into the `/vagrant` directory for most day to day usage with `cd /vagrant`.
+
+To test the images, run [guest] `c up` - this is a custom script that has been built to ease the process of interacting with Docker and Docker Compose.
 
 ## Git, building and testing
 
@@ -36,7 +39,7 @@ The core images in this repository are:
 - `flashmedia/consul`
 - `flashmedia/consului`
 
-There are also some used only for testing:
+There is also one used only for testing:
 
 - `flashmedia/orchestrator-app`
 

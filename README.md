@@ -30,3 +30,16 @@ For more info about the base images used in these images please checkout [docker
 ## Development
 
 To develop these images, please see the [development](./DEVELOPMENT.md) guide.
+
+## Production
+
+These images are pushed to production by simply tagging and pushing to GitHub. Docker Cloud will pick up on these tags and automatically build the images remotely.
+
+There are two tags used to initiate automated builds:
+
+- `consul-vx.x.x` will build the `consul` image.
+- `consului-vx.x.x` will build the `consului` image.
+
+Whenever one of, or both of these tags are pushed, Docker Cloud will create an image with the same tag as the version, and a `latest`. For example, pushing a GitHub tag of `consul-v2.0.0` will produce `flashmedia/consul:2.0.0` and `flashmedia/consul:latest`.
+
+`latest` is just a convenience which can be used in stack files, but should never be used in a Dockerfile (as these images are).
